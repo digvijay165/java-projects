@@ -1,0 +1,11 @@
+# Build output
+target/
+
+# Data files the server writes when you run it
+*.aof
+*.aof.rewrite
+
+# Editor folders
+.idea/
+*.iml
+.vscode/

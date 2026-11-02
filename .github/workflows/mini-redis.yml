@@ -1,0 +1,30 @@
+name: mini-redis
+
+on:
+  push:
+    paths:
+      - 'mini-redis/**'
+      - '.github/workflows/mini-redis.yml'
+  pull_request:
+    paths:
+      - 'mini-redis/**'
+      - '.github/workflows/mini-redis.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: mini-redis
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+          cache-dependency-path: mini-redis/pom.xml
+
+      - name: Compile with warnings as errors and run all tests
+        run: mvn -B verify

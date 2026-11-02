@@ -1,0 +1,9 @@
+# Build output
+target/
+build/
+*.class
+
+# Editor folders
+.idea/
+*.iml
+.vscode/
